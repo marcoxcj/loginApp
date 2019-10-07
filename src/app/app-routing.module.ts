@@ -5,6 +5,8 @@ import { LoginPageComponent } from './componentes/login-page/login-page.componen
 import { RegisterPageComponent } from './componentes/register-page/register-page.component';
 import { PrivadoPageComponent } from './componentes/privado-page/privado-page.component';
 import { NotFoundPageComponent } from './componentes/not-found-page/not-found-page.component';
+import { AuthGuard } from './guards/auth.guard';
+
 
 const routes: Routes = [
   { path: '',
@@ -20,7 +22,8 @@ const routes: Routes = [
   },
   {
     path: 'privado',
-    component: PrivadoPageComponent
+    component: PrivadoPageComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: '**',
